@@ -2,8 +2,9 @@
   @apply border border-transparent
   transition-all2 flex-center-center
   rounded-full overflow-hidden cursor-pointer;
+
   &[disabled] {
-    @apply cursor-default;
+    @apply pointer-events-none;
   }
 
   /* COLOR */
@@ -36,8 +37,7 @@
   }
 
   /* DISABLED */
-  &[disabled],
-  &[disabled]:hover {
+  &[disabled] {
     @apply bg-gray-5 border-gray-5 text-gray-4;
   }
 
