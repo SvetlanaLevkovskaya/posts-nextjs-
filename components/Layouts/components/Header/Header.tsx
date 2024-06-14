@@ -1,28 +1,30 @@
-import { type FC, useState } from 'react'
-
-import { SignInButton } from '@/components/SignInButton/SignInButton'
+import { type FC } from 'react'
 
 import styles from './Header.module.css'
-
-import BurgerMenu from './components/BurgerMenu/BurgerMenu'
-import Logo from './components/Logo/Logo'
-import Navigation from './components/Navigation/Navigation'
+import { Button } from '@/components/ui'
+import { logout } from '@/stores/userStore'
+import { useRouter } from 'next/navigation'
 
 interface HeaderProps {
 	isAuth: boolean
 }
 
 export const Header: FC<HeaderProps> = ({ isAuth }) => {
+
+	const router = useRouter()
+
+	const handleLogout = () => {
+		logout()
+		router.push('/login')
+	}
+
 	return (
-		<div className={styles.wrapper}>
-			<div className={styles.header}>
-				<Logo />
-				<Navigation />
+		<div className={ styles.wrapper }>
+			<div className={ styles.header }>
 
-				<div className={styles.right}>
-					{isAuth ? 'isAuth' : <SignInButton />}
+				<div className={ styles.right }>
+					{ isAuth && <Button color="purple" onClick={ handleLogout }>Logout</Button> }
 
-					<BurgerMenu />
 				</div>
 			</div>
 		</div>

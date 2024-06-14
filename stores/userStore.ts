@@ -1,23 +1,22 @@
-import { createStoreon } from 'storeon';
-import { storeonDevtools } from 'storeon/devtools';
+import { atom } from 'nanostores'
+import Cookies from 'js-cookie'
 
-interface State {
-  user: {
-    username: string | null;
-  };
+
+interface User {
+	username: string | null;
+	password?: string | null;
 }
 
-interface Events {
-  'login': { username: string };
-  'logout': undefined;
+export const userStore = atom<User>({ username: null, password: null })
+
+export const login = (username: string, password: string) => {
+	userStore.set({ username, password })
+	Cookies.set('username', username)
+	Cookies.set('password', password)
 }
 
-const user = (store: any) => {
-  store.on('@init', () => ({ user: { username: null } }));
-  store.on('login', (state, { username }) => ({
-    user: { username }
-  }));
-  store.on('logout', () => ({ user: { username: null } }));
-};
-
-export const store = createStoreon<State, Events>([user, storeonDevtools()]);
+export const logout = () => {
+	Cookies.remove('username')
+	Cookies.remove('password')
+	userStore.set({ username: null, password: null })
+}

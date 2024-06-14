@@ -17,3 +17,9 @@ export interface User {
   id: number;
   username: string;
 }
+
+export type FormData = {
+	username: string;
+	password: string;
+};
+

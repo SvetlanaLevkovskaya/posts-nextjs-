@@ -1,42 +1,29 @@
-import axios from 'axios';
-import { Post, User } from '../../../../types/index';
-import CommentList from '../../../../components/CommentList/CommentList';
+import CommentList from '@/components/CommentList/CommentList'
+import { getAuth } from '@/app/providers/getAuth'
+import { NavLayout } from '@/components/Layouts/NavLayout'
+import { fetchComments, fetchPost, fetchUser } from '@/app/services/clientApi'
 
 
-async function fetchPost(id: number): Promise<Post> {
-  const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
-  return response.data;
-}
-
-async function fetchComments(postId: number): Promise<Comment[]> {
-  const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`);
-  return response.data;
-}
-
-async function fetchUser(userId: number): Promise<User> {
-  const response = await axios.get(`https://jsonplaceholder.typicode.com/users/${userId}`);
-  return response.data;
-}
-
-export default async function PostPage({ params }: {params: any}) {
+export default async function PostPage({ params }: {params: {id: number}}) {
   const { id } = params;
   const post = await fetchPost(id);
   const comments = await fetchComments(id);
   const user = await fetchUser(post.userId);
 
-  console.log('post', post)
-  console.log('comments', comments)
-  console.log('user', user)
+	const { isAuth } = getAuth()
 
   return (
-    <>
-     {/* <NextSeo title={post.title} description={post.body} />*/}
-      <div>
-        <h1>{post.title}</h1>
-        <p>{post.body}</p>
-        <p>Author: {user.username}</p>
-        {/*<CommentList comments={comments} />*/}
-      </div>
-    </>
-  );
+		<NavLayout isAuth={isAuth}>
+			<div className="flex flex-col gap-6 px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48">
+				<div className='flex justify-between items-center'>
+					<h1>{ post.title }</h1>
+					<p className='text-gray-4'>Author: { user.username }</p>
+				</div>
+
+				<p>{ post.body }</p>
+
+				<CommentList comments={ comments } />
+			</div>
+		</NavLayout>
+	);
 }

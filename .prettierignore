@@ -3,5 +3,4 @@ src/typing/__generated__.ts
 /node_modules/
 /generate_types/
 /.vscode/
-docker-compose.yml
-Dockerfile
+
