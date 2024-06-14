@@ -3,6 +3,7 @@ import { ReactNode, Suspense } from 'react'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import AuthWrapper from '@/app/providers/authWrapper'
+import { Loader } from '@/components/ui'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -22,7 +23,7 @@ export default function RootLayout({
 
 		<html lang="en">
 		<body className={ inter.className }>
-		<Suspense fallback="loading">
+		<Suspense fallback={ <Loader /> }>
 			<AuthWrapper>{ children }</AuthWrapper>
 		</Suspense>
 
