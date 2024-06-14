@@ -3,9 +3,9 @@
 }
 
 .header {
-	@apply p-4 tb:p-6 transition-all2;
+	@apply py-4 px-10 tb:px-8 transition-all2;
 
 	& .right {
-		@apply flex justify-end;
+		@apply flex-center-between text-gray-5;
 	}
 }

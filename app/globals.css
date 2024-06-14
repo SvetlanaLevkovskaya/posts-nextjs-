@@ -25,13 +25,16 @@
       width: 10px;
       height: 10px;
     }
+
     &::-webkit-scrollbar-track,
     &::-webkit-scrollbar-thumb {
       border-radius: 20px;
     }
+
     &::-webkit-scrollbar-track {
       @apply bg-gray-4;
     }
+
     &::-webkit-scrollbar-thumb {
       @apply bg-gray-3;
     }

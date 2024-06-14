@@ -13,7 +13,7 @@ import { login, userStore } from '@/stores/userStore'
 import { validationSchema } from '@/utils/validationSchema'
 
 import { FormData } from '@/types'
-import Cookies from 'js-cookie';
+import Cookies from 'js-cookie'
 
 
 export default function LoginPage() {
@@ -24,14 +24,12 @@ export default function LoginPage() {
 	const router = useRouter()
 	const user = useStore(userStore)
 
-	console.log('user LoginPage', user)
-
 	useEffect(() => {
-		const username = Cookies.get('username');
+		const username = Cookies.get('username')
 		if (username) {
-			router.push('/');
+			router.push('/')
 		}
-	}, [router]);
+	}, [router])
 
 	const onSubmit = (data: { username: string; password: string }) => {
 		const { username, password } = data

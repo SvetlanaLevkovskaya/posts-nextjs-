@@ -1,13 +1,12 @@
 .NavLayout {
-	@apply flex flex-col justify-between min-h-dvh;
+  @apply flex flex-col justify-between min-h-dvh;
 
-	& .mainView {
-		@apply flex flex-col min-h-dvh w-full;
-		flex: 1 0 auto;
-	}
+  & .mainView {
+    @apply flex flex-col min-h-dvh w-full;
+    flex: 1 0 auto;
+  }
 
-	& .main {
-		@apply bg-black text-white w-full;
-
-	}
+  & .main {
+    @apply bg-black text-white w-full px-8;
+  }
 }

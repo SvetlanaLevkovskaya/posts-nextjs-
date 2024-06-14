@@ -9,6 +9,7 @@ interface User {
 
 export const userStore = atom<User>({ username: null, password: null })
 
+
 export const login = (username: string, password: string) => {
 	userStore.set({ username, password })
 	Cookies.set('username', username)

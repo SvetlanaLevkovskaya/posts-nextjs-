@@ -19,12 +19,12 @@ export default async function PostsPage({ searchParams }: { searchParams: { page
 				<PostList posts={ posts } />
 
 				<div className="flex gap-2 justify-end">
-					<Button color="neon" disabled={ page <= 1 } size="m" type='square'>
-						<Link href={ `/?page=${ page - 1 }` }>{'<'}</Link>
+					<Button color="neon" disabled={ page <= 1 } size="m" type="square">
+						<Link href={ `/?page=${ page - 1 }` }>{ '<' }</Link>
 					</Button>
 
-					<Button color="neon" disabled={ page >= totalPages } size="m" type='square'>
-						<Link href={ `/?page=${ page + 1 }` }>{'>'}</Link>
+					<Button color="neon" disabled={ page >= totalPages } size="m" type="square">
+						<Link href={ `/?page=${ page + 1 }` }>{ '>' }</Link>
 					</Button>
 
 				</div>

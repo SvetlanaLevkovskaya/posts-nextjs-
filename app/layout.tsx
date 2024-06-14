@@ -3,8 +3,6 @@ import { ReactNode, Suspense } from 'react'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import AuthWrapper from '@/app/providers/authWrapper'
-import { NavLayout } from '@/components/Layouts/NavLayout'
-import { getAuth } from '@/app/providers/getAuth'
 
 
 const inter = Inter({ subsets: ['latin'] })

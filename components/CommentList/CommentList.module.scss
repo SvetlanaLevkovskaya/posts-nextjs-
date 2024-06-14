@@ -4,12 +4,12 @@
   & .commentCard {
     @apply bg-white p-4 rounded-lg shadow-md border;
 
-      & p {
-        @apply mt-2 text-gray-4;
-      }
+    & p {
+      @apply mt-2 text-gray-4;
+    }
 
     & small {
       @apply text-gray-4 block mt-2;
     }
-    }
+  }
 }

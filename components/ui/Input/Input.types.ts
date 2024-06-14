@@ -9,7 +9,6 @@ export interface InputProps {
 	label?: string
 	placeholder?: string
 	type?: InputTypeNamespace
-	dark?: boolean
 	error?: string | boolean
 	onChange?: ChangeEventHandler<HTMLInputElement>
 	required?: boolean
