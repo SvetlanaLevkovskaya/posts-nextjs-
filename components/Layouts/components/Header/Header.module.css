@@ -1,0 +1,13 @@
+.wrapper {
+	@apply sticky top-0 z-5 bg-gray-dark blockWithBottomRounded text-gray-dark;
+}
+
+.header {
+	@apply py-4 tb:py-6 text-white container
+	flex justify-between items-center relative transition-all2;
+
+	& .right {
+		@apply flex-center-center
+		gap-2 tb:gap-6;
+	}
+}

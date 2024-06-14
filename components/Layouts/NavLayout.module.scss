@@ -1,0 +1,22 @@
+.NavLayout {
+	@apply flex flex-col justify-between min-h-dvh;
+
+	&.fullHeight {
+		& .mainView {
+			@apply h-dvh overflow-hidden;
+		}
+		& .main {
+			@apply h-full overflow-hidden flex-1;
+		}
+	}
+
+	& .mainView {
+		@apply flex flex-col min-h-dvh w-full;
+		flex: 1 0 auto;
+	}
+
+	& .main {
+		@apply grid bg-black text-white w-full;
+		flex: 1 0 auto;
+	}
+}
