@@ -15,9 +15,9 @@ export default async function PostPage({ params }: {params: {id: number}}) {
   return (
 		<NavLayout isAuth={isAuth}>
 			<div className="flex flex-col gap-6 px-4 sm:px-8 md:px-16 lg:px-32 xl:px-48">
-				<div className='flex justify-between items-center'>
+				<div className='flex flex-col xl:flex-row xl:justify-between gap-2 xl:gap-10'>
 					<h1>{ post.title }</h1>
-					<p className='text-gray-4'>Author: { user.username }</p>
+					<p className='text-gray-4 flex justify-end flex-shrink-0'>Author: { user.username }</p>
 				</div>
 
 				<p>{ post.body }</p>
