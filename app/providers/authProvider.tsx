@@ -2,13 +2,11 @@
 
 import { ReactNode, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { useStore } from '@nanostores/react'
 import Cookies from 'js-cookie'
 import { userStore } from '@/stores/userStore'
 
-export default function AuthWrapper({ children }: { children: ReactNode }) {
+export default function AuthProvider({ children }: { children: ReactNode }) {
 	const router = useRouter()
-	const user = useStore(userStore)
 
 	useEffect(() => {
 		const username = Cookies.get('username')

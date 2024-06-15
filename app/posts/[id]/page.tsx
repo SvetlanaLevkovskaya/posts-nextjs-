@@ -13,8 +13,9 @@ export default async function PostPage({ params }: { params: { id: number } }) {
 	const { isAuth } = getAuth()
 
 	return (
+
 		<NavLayout isAuth={ isAuth }>
-			<PostDetails post={ post } user={ user } comments={ comments } />
+			{ isAuth && <PostDetails post={ post } user={ user } comments={ comments } /> }
 		</NavLayout>
 	)
 }

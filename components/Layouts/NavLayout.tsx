@@ -21,7 +21,7 @@ export const NavLayout: FC<NavLayoutProps> = ({
 		<>
 			<div className={ styles.NavLayout }>
 				<div className={ styles.mainView }>
-					<Header isAuth={ isAuth } />
+					{ isAuth && <Header isAuth={ isAuth } /> }
 					<main className={ clsx(styles.main, { ['p-6']: !disabledPadding }) }>{ children }</main>
 				</div>
 			</div>

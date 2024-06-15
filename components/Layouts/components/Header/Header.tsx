@@ -19,15 +19,15 @@ export const Header: FC<HeaderProps> = ({ isAuth }) => {
 	}
 
 	const handleLogoClick = () => {
-		router.push('/');
-	};
+		router.push('/')
+	}
 
 	return (
 		<div className={ styles.wrapper }>
 			<div className={ styles.header }>
 
 				<div className={ styles.right }>
-					<Button  onClick={handleLogoClick}>LOGO</Button>
+					<Button onClick={ handleLogoClick }>LOGO</Button>
 					{ isAuth && <Button color="purple" onClick={ handleLogout }>Logout</Button> }
 
 				</div>

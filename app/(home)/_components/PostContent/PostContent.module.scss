@@ -1,0 +1,7 @@
+.postContentWrapper {
+  @apply flex flex-col gap-6 w-full;
+
+  & .btnWrapper {
+    @apply flex gap-2 justify-end;
+  }
+}

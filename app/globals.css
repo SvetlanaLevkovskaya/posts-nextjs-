@@ -2,23 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --Red-filter-color: rgb(238, 63, 67);
-  --Blue-filter-color: rgb(34, 74, 251);
-  --Green-filter-color: rgb(96, 192, 83);
-  --Yellow-filter-color: rgb(240, 221, 78);
-  --Black-filter-color: #000;
-  --White-filter-color: #fff;
-  --Purple-filter-color: rgb(243, 85, 237);
-  --Camouflage-filter-border: #4e4b2c;
-  --Camouflage-filter-color: linear-gradient(
-    45deg,
-    rgba(80, 115, 80, 1) 50%,
-    rgba(115, 85, 56, 1) 50%
-  );
-  --Beast-filter-color: #1000cf;
-}
-
 * {
   @media (min-width: theme('screens.tb')) {
     &::-webkit-scrollbar {
