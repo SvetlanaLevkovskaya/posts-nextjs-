@@ -1,19 +1,14 @@
 'use client'
 
-import { useEffect } from 'react'
-import { useRouter } from 'next/navigation'
-import { useStore } from '@nanostores/react'
-
 import { useForm } from 'react-hook-form'
 import '../globals.css'
 
 import { yupResolver } from '@hookform/resolvers/yup'
 import { Button, Input } from '@/ui/index'
-import { login, userStore } from '@/stores/userStore'
+import { login } from '@/stores/userStore'
 import { validationSchema } from '@/utils/validationSchema'
 
 import { FormData } from '@/types'
-import Cookies from 'js-cookie'
 
 
 export default function LoginPage() {
@@ -21,22 +16,12 @@ export default function LoginPage() {
 		resolver: yupResolver(validationSchema),
 	})
 
-	const router = useRouter()
-	const user = useStore(userStore)
-
-	useEffect(() => {
-		const username = Cookies.get('username')
-		if (username) {
-			router.push('/')
-		}
-	}, [router])
-
 	const onSubmit = (data: { username: string; password: string }) => {
 		const { username, password } = data
 
 		if (username === 'admin' && password === 'admin') {
 			login(username, password)
-			router.push('/')
+			window.location.href = '/'
 		} else {
 			alert('Введите admin/admin')
 		}
