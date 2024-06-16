@@ -1,9 +1,11 @@
 import { type FC } from 'react'
 import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui'
-import { logout } from '@/stores/userStore'
+import { logout, userStore } from '@/stores/userStore'
 import styles from './Header.module.css'
 import { customToastSuccess } from '@/ui/CustomToast/CustomToast'
+import { useStore } from '@nanostores/react'
+
 
 interface HeaderProps {
 	isAuth: boolean
@@ -13,10 +15,12 @@ export const Header: FC<HeaderProps> = ({ isAuth }) => {
 
 	const router = useRouter()
 
+	const { username } = useStore(userStore)
+
 	const handleLogout = () => {
 		logout()
 		router.push('/login')
-		customToastSuccess('You are logged out')
+		customToastSuccess(`User ${ username } logged out`)
 	}
 
 	const handleLogoClick = () => {
