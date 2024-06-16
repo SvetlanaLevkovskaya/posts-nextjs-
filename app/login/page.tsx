@@ -1,6 +1,6 @@
 'use client'
 
-import { useForm, SubmitHandler  } from 'react-hook-form'
+import { SubmitHandler, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { customToastError, customToastSuccess } from '@/ui/CustomToast/CustomToast'
 import { Button, Input } from '@/ui/index'
@@ -31,7 +31,7 @@ export default function LoginPage() {
 	}
 
 	return (
-		<div className="flex-center-center min-h-screen ">
+		<div className="flex-center-center min-h-screen">
 			<div className="w-full max-w-md p-8 bg-white shadow-md rounded-md">
 				<form onSubmit={ handleSubmit(onSubmit) } className="flex flex-col gap-5">
 

@@ -66,7 +66,8 @@ const config: Config = {
         auto: 'auto',
       },
       transitionProperty: {
-        all2: 'color, background-color, border-color, border-radius, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, width, height, margin, padding',
+        all2: 'color, background-color, border-color, border-radius, text-decoration-color, fill, stroke, opacity, ' +
+					'box-shadow, transform, filter, backdrop-filter, width, height, margin, padding',
       },
       transitionTimingFunction: {
         DEFAULT: 'ease-in-out',
