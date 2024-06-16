@@ -1,9 +1,9 @@
 'use client'
 
+import { FC } from 'react'
 import Link from 'next/link'
 import PostList from '@/app/(home)/_components/PostList/PostList'
 import { Button } from '@/ui/index'
-import { FC } from 'react'
 import { Post } from '@/types'
 import styles from './PostContent.module.scss'
 
@@ -12,6 +12,7 @@ interface PostsContentProps {
 	page: number;
 	totalPages: number;
 }
+
 
 const PostsContent: FC<PostsContentProps> = ({ posts, page, totalPages }) => {
 	return (

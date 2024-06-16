@@ -1,12 +1,13 @@
-import { Post } from '@/types'
-import Link from 'next/link'
 import { FC } from 'react'
+import Link from 'next/link'
+import { Post } from '@/types'
 import styles from './PostList.module.scss'
 
 
 type PostProps = {
 	posts: Post[];
 };
+
 
 const PostList: FC<PostProps> = ({ posts }) => (
 

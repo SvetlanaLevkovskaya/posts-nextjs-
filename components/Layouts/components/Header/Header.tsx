@@ -1,9 +1,8 @@
 import { type FC } from 'react'
-
-import styles from './Header.module.css'
+import { useRouter } from 'next/navigation'
 import { Button } from '@/components/ui'
 import { logout } from '@/stores/userStore'
-import { useRouter } from 'next/navigation'
+import styles from './Header.module.css'
 
 interface HeaderProps {
 	isAuth: boolean

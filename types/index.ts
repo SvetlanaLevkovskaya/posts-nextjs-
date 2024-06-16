@@ -23,3 +23,9 @@ export type FormData = {
 	password: string;
 };
 
+export type Params = {
+	params: {
+		id: number
+	}
+}
+

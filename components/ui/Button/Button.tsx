@@ -1,10 +1,9 @@
 'use client'
 
 import type { FC, MouseEventHandler, PropsWithChildren } from 'react'
-
 import clsx from 'clsx'
-
 import styles from './Button.module.scss'
+
 
 type ColorType = 'neon' | 'purple'
 
@@ -20,6 +19,7 @@ interface ButtonProps extends PropsWithChildren {
 	disabled?: boolean
 	className?: string
 }
+
 
 export const Button: FC<ButtonProps> = ({
 																					color = 'default',

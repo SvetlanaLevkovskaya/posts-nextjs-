@@ -1,12 +1,10 @@
 'use client'
 
 import { type FC, useState } from 'react'
-
 import clsx from 'clsx'
-
 import styles from './Input.module.scss'
-
 import { InputProps } from './Input.types'
+
 
 export const Input: FC<InputProps> = ({
 																				register,

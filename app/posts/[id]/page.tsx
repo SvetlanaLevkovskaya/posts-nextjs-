@@ -1,10 +1,16 @@
+import type { Metadata } from 'next'
 import { getAuth } from '@/app/providers/getAuth'
 import { NavLayout } from '@/components/Layouts/NavLayout'
 import { fetchComments, fetchPost, fetchUser } from '@/app/services/clientApi'
-import { PostDetails } from '@/app/posts/[id]/_components/PostDetails/PostDetails'
+import { PostDetails } from './_components/PostDetails/PostDetails'
+import { Params } from '@/types'
 
 
-export default async function PostPage({ params }: { params: { id: number } }) {
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+	return { title: `Post ${ params.id }` }
+}
+
+export default async function PostPage({ params }: Params) {
 	const { id } = params
 	const post = await fetchPost(id)
 	const comments = await fetchComments(id)

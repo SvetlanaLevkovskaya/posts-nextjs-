@@ -92,10 +92,15 @@ const config: Config = {
             transform: 'scale(1)',
           },
         },
+				fade: {
+					from: { opacity: '0' },
+					to: { opacity: '1' },
+				},
 
       },
       animation: {
         scaleIn: 'scaleIn .35s ease-in-out',
+				fade: 'fade .5s ease-in-out',
        },
     },
   },

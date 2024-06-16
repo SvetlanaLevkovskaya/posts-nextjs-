@@ -1,5 +1,7 @@
-import { Comment } from '@/types'
+'use client'
+
 import { FC } from 'react'
+import { Comment } from '@/types'
 import styles from './CommentList.module.scss'
 
 type CommentsProps = {
