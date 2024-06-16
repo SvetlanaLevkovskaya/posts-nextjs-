@@ -15,4 +15,5 @@ export interface InputProps {
 	disabled?: boolean
 	className?: string
 	loading?: boolean
+	autofocus?: boolean
 }

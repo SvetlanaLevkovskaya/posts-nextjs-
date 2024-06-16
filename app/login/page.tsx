@@ -40,7 +40,8 @@ export default function LoginPage() {
 						placeholder='admin'
 						error={ errors.username?.message }
 						required
-					/>
+						autofocus
+					 />
 
 
 					<Input

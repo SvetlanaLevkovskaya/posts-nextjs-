@@ -19,6 +19,7 @@ export const Input: FC<InputProps> = ({
 
 																				onChange: onChangeInput,
 																				loading,
+																				autofocus,
 																				...props
 																			}) => {
 	const [currentType] = useState(type === 'text' ? 'text' : type)
@@ -41,6 +42,7 @@ export const Input: FC<InputProps> = ({
 						placeholder={ placeholder }
 						required={ required }
 						disabled={ disabled }
+						autoFocus={autofocus}
 						{ ...register }
 						onChange={ (e) => {
 							onChangeInput?.(e)
