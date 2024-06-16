@@ -1,18 +1,77 @@
 import { atom } from 'nanostores'
 
-type LikedState = Record<number, boolean>
+type LikeDislikeState = {
+	likes: Record<number, number>;
+	dislikes: Record<number, number>;
+	userLiked: Record<number, boolean>;
+	userDisliked: Record<number, boolean>;
+};
 
-export const likedStates = atom<LikedState>({})
+export const likeDislikeState = atom<LikeDislikeState>({
+	likes: {},
+	dislikes: {},
+	userLiked: {},
+	userDisliked: {},
+});
+
+const updateState = (commentId: number, type: 'like' | 'dislike') => {
+	const state = likeDislikeState.get();
+	const newLikes = { ...state.likes };
+	const newDislikes = { ...state.dislikes };
+	const newUserLiked = { ...state.userLiked };
+	const newUserDisliked = { ...state.userDisliked };
+
+	if (type === 'like') {
+		if (state.userLiked[commentId]) {
+			newLikes[commentId]--;
+			delete newUserLiked[commentId];
+		} else {
+			newLikes[commentId] = (state.likes[commentId] || 0) + 1;
+			newUserLiked[commentId] = true;
+			if (state.userDisliked[commentId]) {
+				newDislikes[commentId]--;
+				delete newUserDisliked[commentId];
+			}
+		}
+	} else {
+		if (state.userDisliked[commentId]) {
+			newDislikes[commentId]--;
+			delete newUserDisliked[commentId];
+		} else {
+			newDislikes[commentId] = (state.dislikes[commentId] || 0) + 1;
+			newUserDisliked[commentId] = true;
+			if (state.userLiked[commentId]) {
+				newLikes[commentId]--;
+				delete newUserLiked[commentId];
+			}
+		}
+	}
+
+	likeDislikeState.set({
+		likes: newLikes,
+		dislikes: newDislikes,
+		userLiked: newUserLiked,
+		userDisliked: newUserDisliked,
+	});
+};
+
+export const handleLikeClick = (commentId: number) => {
+	updateState(commentId, 'like');
+};
+
+export const handleDislikeClick = (commentId: number) => {
+	updateState(commentId, 'dislike');
+};
 
 if (typeof window !== 'undefined') {
-	const storedState = sessionStorage.getItem('likedStates')
+	const storedState = sessionStorage.getItem('likeDislikeState');
 	if (storedState) {
-		likedStates.set(JSON.parse(storedState))
+		likeDislikeState.set(JSON.parse(storedState));
 	}
 }
 
-likedStates.listen((state) => {
+likeDislikeState.listen((state) => {
 	if (typeof window !== 'undefined') {
-		sessionStorage.setItem('likedStates', JSON.stringify(state))
+		sessionStorage.setItem('likeDislikeState', JSON.stringify(state));
 	}
-})
+});

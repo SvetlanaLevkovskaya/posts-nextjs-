@@ -1,10 +1,13 @@
 'use client'
 
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { FaRegThumbsDown, FaRegThumbsUp } from 'react-icons/fa'
 import LikeButton from '@/app/posts/[id]/_components/LikeButton/LikeButton'
+import { useStore } from '@nanostores/react'
+import { handleDislikeClick, handleLikeClick, likeDislikeState } from '@/stores/likeStore'
 import { Comment } from '@/types'
 import styles from './CommentList.module.scss'
+
 
 type CommentsProps = {
 	comments: Comment[];
@@ -13,37 +16,17 @@ type CommentsProps = {
 
 export const CommentList: FC<CommentsProps> = ({ comments }) => {
 
-	const [likes, setLikes] = useState<{ [key: number]: number }>({});
-	const [dislikes, setDislikes] = useState<{ [key: number]: number }>({});
-	const [userLiked, setUserLiked] = useState<{ [key: number]: boolean }>({});
-	const [userDisliked, setUserDisliked] = useState<{ [key: number]: boolean }>({});
+	const state = useStore(likeDislikeState)
 
-	const handleLikeClick = (commentId: number) => {
-		if (!userLiked[commentId] && !userDisliked[commentId]) {
-			setLikes(prevLikes => ({
-				...prevLikes,
-				[commentId]: (prevLikes[commentId] || 0) + 1
-			}));
-			setUserLiked(prevUserLiked => ({
-				...prevUserLiked,
-				[commentId]: true
-			}));
-		}
-	};
+	const [hydrated, setHydrated] = useState(false)
 
-	const handleDislikeClick = (commentId: number) => {
-		if (!userLiked[commentId] && !userDisliked[commentId]) {
-			setDislikes(prevDislikes => ({
-				...prevDislikes,
-				[commentId]: (prevDislikes[commentId] || 0) + 1
-			}));
-			setUserDisliked(prevUserDisliked => ({
-				...prevUserDisliked,
-				[commentId]: true
-			}));
-		}
-	};
+	useEffect(() => {
+		setHydrated(true)
+	}, [])
 
+	if (!hydrated) {
+		return null
+	}
 
 	return (
 		<div className={ styles.commentSection }>
@@ -57,11 +40,11 @@ export const CommentList: FC<CommentsProps> = ({ comments }) => {
 						<div className={ styles.icons }>
 							<div className={ styles.iconWrapper } onClick={ () => handleLikeClick(comment.id) }>
 								<FaRegThumbsUp className={ styles.icon } />
-								<span className={ styles.count }>{ likes[comment.id] || '' }</span>
+								<span className={ styles.count }>{ state.likes[comment.id] || null }</span>
 							</div>
 							<div className={ styles.iconWrapper } onClick={ () => handleDislikeClick(comment.id) }>
 								<FaRegThumbsDown className={ styles.icon } />
-								<span className={ styles.count }>{ dislikes[comment.id] || '' }</span>
+								<span className={ styles.count }>{ state.dislikes[comment.id] || null }</span>
 							</div>
 							<LikeButton commentId={ comment.id } />
 						</div>
