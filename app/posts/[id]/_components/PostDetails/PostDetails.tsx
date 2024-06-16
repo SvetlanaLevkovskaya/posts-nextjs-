@@ -1,9 +1,9 @@
 'use client'
 
 import { FC } from 'react'
-import CommentList from '@/app/posts/[id]/_components/CommentList/CommentList'
 import { Comment, Post, User } from '@/types'
 import styles from './PostDetails.module.scss'
+import { CommentList } from '@/app/posts/[id]/_components/CommentList/CommentList'
 
 type PostDetailsProps = {
 	post: Post;

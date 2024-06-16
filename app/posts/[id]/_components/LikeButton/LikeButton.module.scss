@@ -1,0 +1,11 @@
+.icon {
+  @apply text-gray-3 cursor-pointer transition-colors duration-200;
+
+  &:hover {
+    @apply text-gray-4;
+  }
+}
+
+.liked {
+  @apply text-red;
+}

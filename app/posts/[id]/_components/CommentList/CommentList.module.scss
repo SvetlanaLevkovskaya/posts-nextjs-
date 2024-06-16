@@ -1,3 +1,15 @@
+.commentSection {
+  @apply mt-8;
+}
+
+.separator {
+  @apply bg-gray-3 my-4;
+}
+
+.commentCount {
+  @apply text-s_text font-bold mb-4;
+}
+
 .commentListWrapper {
   @apply space-y-4;
 
@@ -11,5 +23,17 @@
     & small {
       @apply text-gray-4 block mt-2;
     }
+
+    & .icons {
+      @apply flex items-center space-x-2 mt-2;
+    }
+  }
+}
+
+.icon {
+  @apply text-gray-3 cursor-pointer transition-colors duration-200;
+
+  &:hover {
+    @apply text-gray-4;
   }
 }
