@@ -1,11 +1,11 @@
 .icon {
-  @apply text-gray-3 cursor-pointer transition-all2;
+	@apply text-gray-3 cursor-pointer transition-all2;
 
-  &:hover {
-    @apply text-gray-4;
-  }
+	&:hover {
+		@apply text-gray-4;
+	}
 }
 
 .liked {
-  @apply text-red;
+	@apply text-red;
 }

@@ -1,9 +1,10 @@
 'use client'
 
 import type { FC, MouseEventHandler, PropsWithChildren } from 'react'
-import clsx from 'clsx'
-import styles from './Button.module.scss'
 
+import clsx from 'clsx'
+
+import styles from './Button.module.scss'
 
 type ColorType = 'neon' | 'purple'
 
@@ -20,30 +21,29 @@ interface ButtonProps extends PropsWithChildren {
 	className?: string
 }
 
-
 export const Button: FC<ButtonProps> = ({
-																					color = 'default',
-																					size = 'l',
-																					type,
-																					disabled,
-																					onClick,
-																					className,
-																					children,
-																				}) => {
+	color = 'default',
+	size = 'l',
+	type,
+	disabled,
+	onClick,
+	className,
+	children,
+}) => {
 	return (
 		<button
-			className={ clsx(
+			className={clsx(
 				styles.button,
-				{ [styles[`${ color }`]]: color },
-				{ [styles[`${ size }`]]: size && color !== 'default' },
-				{ [styles[`${ type }`]]: type && color !== 'default' },
-				{ [`${ className }`]: className },
-			) }
-			type={ onClick ? 'button' : 'submit' }
-			onClick={ onClick }
-			disabled={ disabled }
+				{ [styles[`${color}`]]: color },
+				{ [styles[`${size}`]]: size && color !== 'default' },
+				{ [styles[`${type}`]]: type && color !== 'default' },
+				{ [`${className}`]: className }
+			)}
+			type={onClick ? 'button' : 'submit'}
+			onClick={onClick}
+			disabled={disabled}
 		>
-			{ children }
+			{children}
 		</button>
 	)
 }

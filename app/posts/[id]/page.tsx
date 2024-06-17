@@ -1,13 +1,14 @@
 import type { Metadata } from 'next'
-import { getAuth } from '@/app/providers/getAuth'
+
 import { NavLayout } from '@/components/Layouts/NavLayout'
-import { fetchComments, fetchPost, fetchUser } from '@/app/services/clientApi'
+
 import { PostDetails } from './_components/PostDetails/PostDetails'
+import { getAuth } from '@/app/providers/getAuth'
+import { fetchComments, fetchPost, fetchUser } from '@/app/services/clientApi'
 import { Params } from '@/types'
 
-
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
-	return { title: `Post ${ params.id }` }
+	return { title: `Post ${params.id}` }
 }
 
 export default async function PostPage({ params }: Params) {
@@ -19,9 +20,8 @@ export default async function PostPage({ params }: Params) {
 	const { isAuth } = getAuth()
 
 	return (
-
-		<NavLayout isAuth={ isAuth }>
-			{ isAuth && <PostDetails post={ post } user={ user } comments={ comments } /> }
+		<NavLayout isAuth={isAuth}>
+			{isAuth && <PostDetails post={post} user={user} comments={comments} />}
 		</NavLayout>
 	)
 }

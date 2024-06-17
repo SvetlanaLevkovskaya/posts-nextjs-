@@ -1,8 +1,10 @@
 'use client'
 
 import { ReactNode, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
+
 import Cookies from 'js-cookie'
+import { useRouter } from 'next/navigation'
+
 import { userStore } from '@/stores/userStore'
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
@@ -19,5 +21,5 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
 		}
 	}, [router])
 
-	return <>{ children }</>
+	return <>{children}</>
 }

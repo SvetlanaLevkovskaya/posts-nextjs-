@@ -3,48 +3,48 @@
 @tailwind utilities;
 
 * {
-  @media (min-width: theme('screens.tb')) {
-    &::-webkit-scrollbar {
-      width: 10px;
-      height: 10px;
-    }
+	@media (min-width: theme('screens.tb')) {
+		&::-webkit-scrollbar {
+			width: 10px;
+			height: 10px;
+		}
 
-    &::-webkit-scrollbar-track,
-    &::-webkit-scrollbar-thumb {
-      border-radius: 20px;
-    }
+		&::-webkit-scrollbar-track,
+		&::-webkit-scrollbar-thumb {
+			border-radius: 20px;
+		}
 
-    &::-webkit-scrollbar-track {
-      @apply bg-gray-4;
-    }
+		&::-webkit-scrollbar-track {
+			@apply bg-gray-4;
+		}
 
-    &::-webkit-scrollbar-thumb {
-      @apply bg-gray-3;
-    }
-  }
+		&::-webkit-scrollbar-thumb {
+			@apply bg-gray-3;
+		}
+	}
 }
 
 body {
-  @apply bg-black text-white select-none;
-  height: 100vh;
+	@apply bg-black text-white select-none;
+	height: 100vh;
 }
 
 h1 {
-  @apply text-s_h1;
+	@apply text-s_h1;
 }
 
 h2 {
-  @apply text-s_h2;
+	@apply text-s_h2;
 }
 
 h3 {
-  @apply text-s_h3;
+	@apply text-s_h3;
 }
 
 h4 {
-  @apply text-s_h4;
+	@apply text-s_h4;
 }
 
 h5 {
-  @apply text-s_h5;
+	@apply text-s_h5;
 }

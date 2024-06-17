@@ -1,59 +1,60 @@
 'use client'
 
 import { type FC, useState } from 'react'
+
 import clsx from 'clsx'
+
 import styles from './Input.module.scss'
+
 import { InputProps } from './Input.types'
 
-
 export const Input: FC<InputProps> = ({
-																				register,
-																				type = 'text',
-																				label,
-																				error,
+	register,
+	type = 'text',
+	label,
+	error,
 
-																				required,
-																				placeholder,
-																				disabled,
-																				className,
+	required,
+	placeholder,
+	disabled,
+	className,
 
-																				onChange: onChangeInput,
-																				loading,
-																				autofocus,
-																				...props
-																			}) => {
+	onChange: onChangeInput,
+	loading,
+	autofocus,
+	...props
+}) => {
 	const [currentType] = useState(type === 'text' ? 'text' : type)
 
 	return (
 		<div
-			className={ clsx(
+			className={clsx(
 				styles.input,
 				{ [styles.error]: typeof error !== 'undefined' },
 				{ ['mb-9']: typeof error === 'string' && !!error.length },
-				{ [`${ className }`]: className },
-			) }
+				{ [`${className}`]: className }
+			)}
 		>
 			<label>
-				{ label && <span className={ styles.label }>{ label }</span> }
+				{label && <span className={styles.label}>{label}</span>}
 
-				<div className={ styles.wrapper }>
+				<div className={styles.wrapper}>
 					<input
-						type={ currentType }
-						placeholder={ placeholder }
-						required={ required }
-						disabled={ disabled }
+						type={currentType}
+						placeholder={placeholder}
+						required={required}
+						disabled={disabled}
 						autoFocus={autofocus}
-						{ ...register }
-						onChange={ (e) => {
+						{...register}
+						onChange={(e) => {
 							onChangeInput?.(e)
 							register?.onChange?.(e)
-						} }
-						{ ...props }
+						}}
+						{...props}
 					/>
-
 				</div>
 
-				{ typeof error === 'string' && !!error.length && <div className={ styles.error }>{ error }</div> }
+				{typeof error === 'string' && !!error.length && <div className={styles.error}>{error}</div>}
 			</label>
 		</div>
 	)

@@ -3,7 +3,6 @@ import { UseFormRegisterReturn } from 'react-hook-form'
 
 type InputTypeNamespace = 'text' | 'password'
 
-
 export interface InputProps {
 	register: UseFormRegisterReturn<any>
 	label?: string
