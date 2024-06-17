@@ -15,7 +15,7 @@ interface NavLayoutProps extends PropsWithChildren {
 
 export const NavLayout: FC<NavLayoutProps> = ({ isAuth, disabledPadding, children }) => {
   return (
-    <div className={styles.NavLayout}>
+    <div className={styles.navLayout}>
       <div className={styles.mainView}>
         {isAuth && <Header isAuth={isAuth} />}
         <main className={clsx(styles.main, { ['p-6']: !disabledPadding })}>{children}</main>
