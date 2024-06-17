@@ -5,14 +5,14 @@ import { getAuth } from '@/app/providers/getAuth'
 import { fetchPosts } from '@/app/services/clientApi'
 
 export default async function PostsPage({ searchParams }: { searchParams: { page: string } }) {
-	const page = parseInt(searchParams.page) || 1
-	const { posts, totalPages } = await fetchPosts(page)
+  const page = parseInt(searchParams.page) || 1
+  const { posts, totalPages } = await fetchPosts(page)
 
-	const { isAuth } = getAuth()
+  const { isAuth } = getAuth()
 
-	return (
-		<NavLayout isAuth={isAuth}>
-			{isAuth && <PostsContent posts={posts} page={page} totalPages={totalPages} />}
-		</NavLayout>
-	)
+  return (
+    <NavLayout isAuth={isAuth}>
+      {isAuth && <PostsContent posts={posts} page={page} totalPages={totalPages} />}
+    </NavLayout>
+  )
 }

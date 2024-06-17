@@ -1,11 +1,11 @@
 .wrapper {
-	@apply sticky top-0 z-5 bg-gray-dark text-gray-dark;
+  @apply sticky top-0 z-5 bg-gray-dark text-gray-dark;
 }
 
 .header {
-	@apply py-4 px-10 tb:px-8 transition-all2;
+  @apply py-4 px-10 tb:px-8 transition-all2;
 
-	& .right {
-		@apply flex-center-between text-gray-5;
-	}
+  & .right {
+    @apply flex-center-between text-gray-5;
+  }
 }

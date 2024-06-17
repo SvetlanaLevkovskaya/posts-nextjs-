@@ -1,9 +1,9 @@
 import { cookies } from 'next/headers'
 
 export function getAuth() {
-	const username = cookies().get('username')?.value
+  const username = cookies().get('username')?.value
 
-	const isAuth = !!username
+  const isAuth = !!username
 
-	return { username, isAuth }
+  return { username, isAuth }
 }

@@ -14,19 +14,19 @@ import AuthProvider from '@/app/providers/authProvider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-	title: 'Posts',
-	description: 'Posts',
+  title: 'Posts',
+  description: 'Posts',
 }
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-	return (
-		<html lang="en">
-			<body className={inter.className}>
-				<Suspense fallback={<Spinner />}>
-					<ToastContainer limit={1} />
-					<AuthProvider>{children}</AuthProvider>
-				</Suspense>
-			</body>
-		</html>
-	)
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <Suspense fallback={<Spinner />}>
+          <ToastContainer limit={1} />
+          <AuthProvider>{children}</AuthProvider>
+        </Suspense>
+      </body>
+    </html>
+  )
 }

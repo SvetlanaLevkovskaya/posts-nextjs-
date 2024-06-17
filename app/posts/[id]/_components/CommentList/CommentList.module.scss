@@ -1,47 +1,47 @@
 .commentSection {
-	@apply mt-8;
+  @apply mt-8;
 
-	& .divider {
-		@apply bg-gray-3 my-4;
-	}
+  & .divider {
+    @apply bg-gray-3 my-4;
+  }
 
-	& .commentCount {
-		@apply text-s_text font-bold mb-4;
-	}
+  & .commentCount {
+    @apply text-s_text font-bold mb-4;
+  }
 
-	& .commentListWrapper {
-		@apply space-y-4;
+  & .commentListWrapper {
+    @apply space-y-4;
 
-		& .commentCard {
-			@apply bg-white p-4 rounded-lg shadow-md border;
+    & .commentCard {
+      @apply bg-white p-4 rounded-lg shadow-md border;
 
-			& p {
-				@apply mt-2 text-gray-4;
-			}
+      & p {
+        @apply mt-2 text-gray-4;
+      }
 
-			& small {
-				@apply text-gray-4 block mt-2;
-			}
+      & small {
+        @apply text-gray-4 block mt-2;
+      }
 
-			& .icons {
-				@apply flex items-center space-x-2 mt-2;
+      & .icons {
+        @apply flex items-center space-x-2 mt-2;
 
-				& .iconWrapper {
-					@apply flex-center-center cursor-pointer;
+        & .iconWrapper {
+          @apply flex-center-center cursor-pointer;
 
-					& .icon {
-						@apply mr-1 text-gray-3 cursor-pointer transition-all2;
+          & .icon {
+            @apply mr-1 text-gray-3 cursor-pointer transition-all2;
 
-						&:hover {
-							@apply text-gray-4;
-						}
-					}
+            &:hover {
+              @apply text-gray-4;
+            }
+          }
 
-					& .count {
-						@apply text-gray-4 text-s_text;
-					}
-				}
-			}
-		}
-	}
+          & .count {
+            @apply text-gray-4 text-s_text;
+          }
+        }
+      }
+    }
+  }
 }
