@@ -100,7 +100,7 @@ const config: Config = {
         },
       },
       animation: {
-        scaleIn: 'scaleIn .35s ease-in-out',
+        scaleIn: 'scaleIn .5s ease-in-out',
         fade: 'fade .5s ease-in-out',
       },
     },

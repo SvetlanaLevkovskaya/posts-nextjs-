@@ -5,11 +5,10 @@
     @apply flex-center-center cursor-pointer;
 
     & .icon {
-      @apply text-gray-3 cursor-pointer transition-all2;
+      @apply text-gray-3 cursor-pointer transition-all2 animate-scaleIn;
 
       &:hover {
         @apply text-gray-4;
-        transform: scale(1.1) !important;
       }
     }
 
