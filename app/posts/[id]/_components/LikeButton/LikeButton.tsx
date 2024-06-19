@@ -7,18 +7,24 @@ import { useStore } from '@nanostores/react'
 
 import styles from './LikeButton.module.scss'
 
-import { likeDislikeState } from '@/stores/likeStore'
+import { handleHeartClick, likeState } from '@/stores/likeStore'
+
 
 type LikeButtonProps = {
   commentId: number
 }
 
 const LikeButton: FC<LikeButtonProps> = ({ commentId }) => {
-  const state = useStore(likeDislikeState)
+  const state = useStore(likeState)
 
-  const isLiked = state.userLiked[commentId]
+  const isLiked = state.heartLiked[commentId]
 
-  return <FaHeart className={`${styles.icon} ${isLiked ? styles.liked : ''}`} />
+  return (
+    <FaHeart
+      className={`${styles.icon} ${isLiked ? styles.liked : ''}`}
+      onClick={() => handleHeartClick(commentId)}
+    />
+  )
 }
 
 export default LikeButton

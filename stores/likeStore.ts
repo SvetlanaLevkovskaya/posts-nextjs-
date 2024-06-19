@@ -1,25 +1,29 @@
 import { atom } from 'nanostores'
 
+
 type LikeDislikeState = {
   likes: Record<number, number>
   dislikes: Record<number, number>
   userLiked: Record<number, boolean>
   userDisliked: Record<number, boolean>
+  heartLiked: Record<number, boolean>
 }
 
-export const likeDislikeState = atom<LikeDislikeState>({
+export const likeState = atom<LikeDislikeState>({
   likes: {},
   dislikes: {},
   userLiked: {},
   userDisliked: {},
+  heartLiked: {},
 })
 
-const updateState = (commentId: number, type: 'like' | 'dislike') => {
-  const state = likeDislikeState.get()
+const updateState = (commentId: number, type: 'like' | 'dislike' | 'heart') => {
+  const state = likeState.get()
   const newLikes = { ...state.likes }
   const newDislikes = { ...state.dislikes }
   const newUserLiked = { ...state.userLiked }
   const newUserDisliked = { ...state.userDisliked }
+  const newHeartLiked = { ...state.heartLiked }
 
   if (type === 'like') {
     if (state.userLiked[commentId]) {
@@ -33,7 +37,7 @@ const updateState = (commentId: number, type: 'like' | 'dislike') => {
         delete newUserDisliked[commentId]
       }
     }
-  } else {
+  } else if (type === 'dislike') {
     if (state.userDisliked[commentId]) {
       newDislikes[commentId]--
       delete newUserDisliked[commentId]
@@ -45,13 +49,20 @@ const updateState = (commentId: number, type: 'like' | 'dislike') => {
         delete newUserLiked[commentId]
       }
     }
+  } else if (type === 'heart') {
+    if (state.heartLiked[commentId]) {
+      delete newHeartLiked[commentId]
+    } else {
+      newHeartLiked[commentId] = true
+    }
   }
 
-  likeDislikeState.set({
+  likeState.set({
     likes: newLikes,
     dislikes: newDislikes,
     userLiked: newUserLiked,
     userDisliked: newUserDisliked,
+    heartLiked: newHeartLiked,
   })
 }
 
@@ -63,15 +74,19 @@ export const handleDislikeClick = (commentId: number) => {
   updateState(commentId, 'dislike')
 }
 
+export const handleHeartClick = (commentId: number) => {
+  updateState(commentId, 'heart')
+}
+
 if (typeof window !== 'undefined') {
-  const storedState = sessionStorage.getItem('likeDislikeState')
+  const storedState = sessionStorage.getItem('likeState')
   if (storedState) {
-    likeDislikeState.set(JSON.parse(storedState))
+    likeState.set(JSON.parse(storedState))
   }
 }
 
-likeDislikeState.listen((state) => {
+likeState.listen((state) => {
   if (typeof window !== 'undefined') {
-    sessionStorage.setItem('likeDislikeState', JSON.stringify(state))
+    sessionStorage.setItem('likeState', JSON.stringify(state))
   }
 })

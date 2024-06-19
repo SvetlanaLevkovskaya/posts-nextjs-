@@ -12,8 +12,13 @@
   & .commentListWrapper {
     @apply space-y-4;
 
+
     & .commentCard {
       @apply bg-white p-4 rounded-lg shadow-md border;
+
+      & .likeButtonWrapper {
+        @apply flex justify-end mb-2;
+      }
 
       & p {
         @apply mt-2 text-gray-4;
@@ -45,3 +50,4 @@
     }
   }
 }
+
