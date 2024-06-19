@@ -2,12 +2,9 @@
 
 import { FC, useEffect, useState } from 'react'
 
-import { useStore } from '@nanostores/react'
-
 import styles from './CommentList.module.scss'
 
 import { CommentCard } from '@/app/posts/[id]/_components/CommentCard/CommentCard'
-import { likeState } from '@/stores/likeStore'
 import { Comment } from '@/types'
 
 
@@ -16,8 +13,6 @@ type CommentsProps = {
 }
 
 export const CommentList: FC<CommentsProps> = ({ comments }) => {
-  const state = useStore(likeState)
-
   const [hydrated, setHydrated] = useState(false)
 
   useEffect(() => {
@@ -35,7 +30,7 @@ export const CommentList: FC<CommentsProps> = ({ comments }) => {
       <ul className={styles.commentListWrapper}>
         {comments.map((comment) => (
           <div key={comment.id} className={styles.cardWrapper}>
-            <CommentCard comment={comment} state={state} />
+            <CommentCard comment={comment} />
           </div>
         ))}
       </ul>

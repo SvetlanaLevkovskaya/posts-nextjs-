@@ -3,21 +3,22 @@
 import { FC } from 'react'
 import { FaRegThumbsDown, FaRegThumbsUp, FaThumbsDown, FaThumbsUp } from 'react-icons/fa'
 
+import { useStore } from '@nanostores/react'
 import clsx from 'clsx'
 
 import { Button } from '@/components/ui'
 
 import styles from './CommentIcons.module.scss'
 
-import { LikeState, handleDislikeClick, handleLikeClick } from '@/stores/likeStore'
+import { handleDislikeClick, handleLikeClick, likeState } from '@/stores/likeStore'
 
 
 type CommentIconsProps = {
   commentId: number
-  state: LikeState
 }
 
-export const CommentIcons: FC<CommentIconsProps> = ({ commentId, state }) => {
+export const CommentIcons: FC<CommentIconsProps> = ({ commentId }) => {
+  const state = useStore(likeState)
   const isLiked = state.likes[commentId]
   const isDisliked = state.dislikes[commentId]
 
