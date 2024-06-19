@@ -8,7 +8,7 @@ import clsx from 'clsx'
 
 import styles from './LikeButton.module.scss'
 
-import { handleHeartClick, likeState } from '@/stores/likeStore'
+import { handleHeartClick, heardState } from '@/stores/heardStore'
 
 
 type LikeButtonProps = {
@@ -16,7 +16,7 @@ type LikeButtonProps = {
 }
 
 const LikeButton: FC<LikeButtonProps> = ({ commentId }) => {
-  const state = useStore(likeState)
+  const state = useStore(heardState)
 
   const isLiked = state.heartLiked[commentId]
 
