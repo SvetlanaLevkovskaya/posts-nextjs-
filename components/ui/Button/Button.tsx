@@ -7,7 +7,7 @@ import clsx from 'clsx'
 import styles from './Button.module.scss'
 
 
-type ColorType = 'neon' | 'purple' | 'white'
+type ColorType = 'neon' | 'purple' | 'white' | 'grey'
 
 type SizeType = 'xxl' | 'xl' | 'l' | 'm' | 's' | 'xs'
 

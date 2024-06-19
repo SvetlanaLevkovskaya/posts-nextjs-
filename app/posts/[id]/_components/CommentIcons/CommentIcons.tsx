@@ -21,8 +21,6 @@ export const CommentIcons: FC<CommentIconsProps> = ({ commentId, state }) => {
   const isLiked = state.likes[commentId]
   const isDisliked = state.dislikes[commentId]
 
-  console.log('isLiked', isLiked)
-
   return (
     <div className={styles.icons}>
       <div className={styles.iconWrapper}>

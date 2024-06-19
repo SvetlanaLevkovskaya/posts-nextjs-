@@ -7,6 +7,6 @@
   }
 
   & .main {
-    @apply bg-black text-white w-full px-8;
+    @apply bg-black text-white w-full px-8 tb:pl-16 tb:pr-8;
   }
 }

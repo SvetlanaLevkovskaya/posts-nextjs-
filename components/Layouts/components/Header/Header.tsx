@@ -11,6 +11,7 @@ import styles from './Header.module.css'
 
 import { logout, userStore } from '@/stores/userStore'
 
+
 interface HeaderProps {
   isAuth: boolean
 }
@@ -34,7 +35,9 @@ export const Header: FC<HeaderProps> = ({ isAuth }) => {
     <div className={styles.wrapper}>
       <div className={styles.header}>
         <div className={styles.right}>
-          <Button onClick={handleLogoClick}>LOGO</Button>
+          <Button color="grey" onClick={handleLogoClick}>
+            LOGO
+          </Button>
           {isAuth && (
             <Button color="purple" onClick={handleLogout}>
               Logout
