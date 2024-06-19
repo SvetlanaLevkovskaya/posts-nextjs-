@@ -1,14 +1,13 @@
 'use client'
 
 import { FC, useEffect, useState } from 'react'
-import { FaRegThumbsDown, FaRegThumbsUp } from 'react-icons/fa'
 
 import { useStore } from '@nanostores/react'
 
 import styles from './CommentList.module.scss'
 
-import LikeButton from '@/app/posts/[id]/_components/LikeButton/LikeButton'
-import { handleDislikeClick, handleLikeClick, likeState } from '@/stores/likeStore'
+import { CommentCard } from '@/app/posts/[id]/_components/CommentCard/CommentCard'
+import { likeState } from '@/stores/likeStore'
 import { Comment } from '@/types'
 
 
@@ -35,25 +34,9 @@ export const CommentList: FC<CommentsProps> = ({ comments }) => {
       <h2 className={styles.commentCount}>Comments ({comments.length})</h2>
       <ul className={styles.commentListWrapper}>
         {comments.map((comment) => (
-          <li key={comment.id} className={styles.commentCard}>
-            <div className={styles.likeButtonWrapper}>
-              <LikeButton commentId={comment.id} />
-            </div>
-
-            <p>{comment.body}</p>
-
-            <small>{comment.email}</small>
-            <div className={styles.icons}>
-              <div className={styles.iconWrapper} onClick={() => handleLikeClick(comment.id)}>
-                <FaRegThumbsUp className={styles.icon} />
-                <span className={styles.count}>{state.likes[comment.id] || null}</span>
-              </div>
-              <div className={styles.iconWrapper} onClick={() => handleDislikeClick(comment.id)}>
-                <FaRegThumbsDown className={styles.icon} />
-                <span className={styles.count}>{state.dislikes[comment.id] || null}</span>
-              </div>
-            </div>
-          </li>
+          <div key={comment.id} className={styles.cardWrapper}>
+            <CommentCard comment={comment} state={state} />
+          </div>
         ))}
       </ul>
     </div>

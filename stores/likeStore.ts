@@ -1,7 +1,6 @@
 import { atom } from 'nanostores'
 
-
-type LikeDislikeState = {
+export type LikeState = {
   likes: Record<number, number>
   dislikes: Record<number, number>
   userLiked: Record<number, boolean>
@@ -9,7 +8,7 @@ type LikeDislikeState = {
   heartLiked: Record<number, boolean>
 }
 
-export const likeState = atom<LikeDislikeState>({
+export const likeState = atom<LikeState>({
   likes: {},
   dislikes: {},
   userLiked: {},

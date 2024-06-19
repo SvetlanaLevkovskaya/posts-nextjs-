@@ -24,6 +24,18 @@
     }
   }
 
+  &.white {
+    @apply bg-white text-gray-dark rounded-full;
+
+    &:hover {
+      @apply hover:bg-gray-5 hover:border-gray-5 rounded-full;
+    }
+
+    &:active {
+      @apply bg-gray-2 text-white;
+    }
+  }
+
   &.purple {
     @apply bg-purple-planet text-gray-dark;
 

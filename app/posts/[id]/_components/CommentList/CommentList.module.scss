@@ -11,43 +11,5 @@
 
   & .commentListWrapper {
     @apply space-y-4;
-
-
-    & .commentCard {
-      @apply bg-white p-4 rounded-lg shadow-md border;
-
-      & .likeButtonWrapper {
-        @apply flex justify-end mb-2;
-      }
-
-      & p {
-        @apply mt-2 text-gray-4;
-      }
-
-      & small {
-        @apply text-gray-4 block mt-2;
-      }
-
-      & .icons {
-        @apply flex items-center space-x-2 mt-2;
-
-        & .iconWrapper {
-          @apply flex-center-center cursor-pointer;
-
-          & .icon {
-            @apply mr-1 text-gray-3 cursor-pointer transition-all2;
-
-            &:hover {
-              @apply text-gray-4;
-            }
-          }
-
-          & .count {
-            @apply text-gray-4 text-s_text;
-          }
-        }
-      }
-    }
   }
 }
-
