@@ -35,27 +35,25 @@ export const CommentList: FC<CommentsProps> = ({ comments }) => {
       <h2 className={styles.commentCount}>Comments ({comments.length})</h2>
       <ul className={styles.commentListWrapper}>
         {comments.map((comment) => (
-          <div className={styles.cardWrapper}>
-            <li key={comment.id} className={styles.commentCard}>
-              <div className={styles.likeButtonWrapper}>
-                <LikeButton commentId={comment.id} />
-              </div>
+          <li key={comment.id} className={styles.commentCard}>
+            <div className={styles.likeButtonWrapper}>
+              <LikeButton commentId={comment.id} />
+            </div>
 
-              <p>{comment.body}</p>
+            <p>{comment.body}</p>
 
-              <small>{comment.email}</small>
-              <div className={styles.icons}>
-                <div className={styles.iconWrapper} onClick={() => handleLikeClick(comment.id)}>
-                  <FaRegThumbsUp className={styles.icon} />
-                  <span className={styles.count}>{state.likes[comment.id] || null}</span>
-                </div>
-                <div className={styles.iconWrapper} onClick={() => handleDislikeClick(comment.id)}>
-                  <FaRegThumbsDown className={styles.icon} />
-                  <span className={styles.count}>{state.dislikes[comment.id] || null}</span>
-                </div>
+            <small>{comment.email}</small>
+            <div className={styles.icons}>
+              <div className={styles.iconWrapper} onClick={() => handleLikeClick(comment.id)}>
+                <FaRegThumbsUp className={styles.icon} />
+                <span className={styles.count}>{state.likes[comment.id] || null}</span>
               </div>
-            </li>
-          </div>
+              <div className={styles.iconWrapper} onClick={() => handleDislikeClick(comment.id)}>
+                <FaRegThumbsDown className={styles.icon} />
+                <span className={styles.count}>{state.dislikes[comment.id] || null}</span>
+              </div>
+            </div>
+          </li>
         ))}
       </ul>
     </div>
