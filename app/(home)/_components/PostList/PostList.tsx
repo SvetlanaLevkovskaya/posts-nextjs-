@@ -6,11 +6,12 @@ import styles from './PostList.module.scss'
 
 import { Post } from '@/types'
 
+
 type PostProps = {
   posts: Post[]
 }
 
-const PostList: FC<PostProps> = ({ posts }) => (
+export const PostList: FC<PostProps> = ({ posts }) => (
   <div className={styles.postListWrapper}>
     {posts.map((post) => (
       <div key={post.id} className={styles.postCard}>
@@ -22,5 +23,3 @@ const PostList: FC<PostProps> = ({ posts }) => (
     ))}
   </div>
 )
-
-export default PostList

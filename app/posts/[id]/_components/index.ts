@@ -1,0 +1,6 @@
+export * from './PostDetails/PostDetails'
+export * from './CommentList/CommentList'
+export * from './CommentCard/CommentCard'
+export * from './LikeButton/LikeButton'
+export * from './CommentContent/CommentContent'
+export * from './CommentIcons/CommentIcons'

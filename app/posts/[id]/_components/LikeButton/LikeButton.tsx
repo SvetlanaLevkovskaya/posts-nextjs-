@@ -15,7 +15,7 @@ type LikeButtonProps = {
   commentId: number
 }
 
-const LikeButton: FC<LikeButtonProps> = ({ commentId }) => {
+export const LikeButton: FC<LikeButtonProps> = ({ commentId }) => {
   const state = useStore(heardState)
 
   const isLiked = state.heartLiked[commentId]
@@ -27,5 +27,3 @@ const LikeButton: FC<LikeButtonProps> = ({ commentId }) => {
     />
   )
 }
-
-export default LikeButton

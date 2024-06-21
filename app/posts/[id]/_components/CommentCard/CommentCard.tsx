@@ -1,12 +1,10 @@
 'use client'
 
-import { FC } from 'react'
+import React, { FC } from 'react'
 
 import styles from './CommentCard.module.scss'
 
-import { CommentContent } from '@/app/posts/[id]/_components/CommentContent/CommentContent'
-import { CommentIcons } from '@/app/posts/[id]/_components/CommentIcons/CommentIcons'
-import LikeButton from '@/app/posts/[id]/_components/LikeButton/LikeButton'
+import { CommentContent, CommentIcons, LikeButton } from '@/app/posts/[id]/_components'
 import { Comment } from '@/types'
 
 

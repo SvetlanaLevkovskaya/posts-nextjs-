@@ -4,7 +4,7 @@ import { FC, useEffect, useState } from 'react'
 
 import styles from './CommentList.module.scss'
 
-import { CommentCard } from '@/app/posts/[id]/_components/CommentCard/CommentCard'
+import { CommentCard } from '@/app/posts/[id]/_components'
 import { Comment } from '@/types'
 
 

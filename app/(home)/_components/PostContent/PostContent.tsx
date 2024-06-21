@@ -8,8 +8,9 @@ import { Button } from '@/ui/index'
 
 import styles from './PostContent.module.scss'
 
-import PostList from '@/app/(home)/_components/PostList/PostList'
+import { PostList } from '@/app/(home)/_components'
 import { Post } from '@/types'
+
 
 interface PostsContentProps {
   posts: Post[]
@@ -17,7 +18,7 @@ interface PostsContentProps {
   totalPages: number
 }
 
-const PostsContent: FC<PostsContentProps> = ({ posts, page, totalPages }) => {
+export const PostsContent: FC<PostsContentProps> = ({ posts, page, totalPages }) => {
   return (
     <div className={styles.postContentWrapper}>
       <h1>Posts</h1>
@@ -35,5 +36,3 @@ const PostsContent: FC<PostsContentProps> = ({ posts, page, totalPages }) => {
     </div>
   )
 }
-
-export default PostsContent

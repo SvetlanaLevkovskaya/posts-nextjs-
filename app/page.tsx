@@ -1,8 +1,9 @@
 import { NavLayout } from '@/components/Layouts/NavLayout'
 
-import PostsContent from '@/app/(home)/_components/PostContent/PostContent'
+import { PostsContent } from '@/app/(home)/_components'
 import { getAuth } from '@/app/providers/getAuth'
 import { fetchPosts } from '@/app/services/clientApi'
+
 
 export default async function PostsPage({ searchParams }: { searchParams: { page: string } }) {
   const page = parseInt(searchParams.page) || 1

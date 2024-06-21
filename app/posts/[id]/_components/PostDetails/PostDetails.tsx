@@ -4,8 +4,9 @@ import { FC } from 'react'
 
 import styles from './PostDetails.module.scss'
 
-import { CommentList } from '@/app/posts/[id]/_components/CommentList/CommentList'
+import { CommentList } from '@/app/posts/[id]/_components'
 import { Comment, Post, User } from '@/types'
+
 
 type PostDetailsProps = {
   post: Post
