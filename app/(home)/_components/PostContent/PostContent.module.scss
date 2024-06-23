@@ -2,7 +2,7 @@
   @apply flex flex-col gap-6 w-full;
 
   & h1 {
-    @apply px-8;
+    @apply px-0 tb:px-8;
   }
 
   & .btnWrapper {
